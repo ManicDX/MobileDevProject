@@ -1,6 +1,7 @@
 package com.example.m100266177.mobiledevproject;
 
 import android.app.Activity;
+import android.content.Context;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -11,6 +12,10 @@ public class MainActivity extends Activity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        AnimatedBackground animatedBackground = new AnimatedBackground(this);
+        animatedBackground.setColour(250,100,100);
+        animatedBackground.invalidate();
     }
 
     @Override
