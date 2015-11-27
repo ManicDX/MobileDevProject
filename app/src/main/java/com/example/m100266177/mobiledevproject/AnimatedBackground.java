@@ -18,7 +18,7 @@ import javax.microedition.khronos.opengles.GL10;
  */
 public class AnimatedBackground implements GLSurfaceView.Renderer {
 
-    private int[] RGBcolour = {250, 100, 100};
+    private float[] RGBcolour = {250, 100, 100};
 
     private int SPEED = 30;
 
@@ -41,11 +41,13 @@ public class AnimatedBackground implements GLSurfaceView.Renderer {
         gl.glLoadIdentity();
 
         // what follows actually draws the scene
-        float temp = LERP(0.0f, 1.2f);
+        float temp = SimpleMath.LERP(0.0f, 1.2f, dt);
         // move the shape into view
         gl.glTranslatef(temp, -1.2f + temp, -6.0f);
+        float angle = SimpleMath.LERP(0, 360, dt);
+        gl.glRotatef(angle, 0.0f, 0.0f, 1.0f);
 
-        gl.glColor4f(temp, temp, temp, 1.0f);
+        gl.glColor4f(temp, temp, 0.0f, 1.0f);
 
         dt += 0.01;
         if(dt > 1.0f)
@@ -118,15 +120,13 @@ public class AnimatedBackground implements GLSurfaceView.Renderer {
         vertexBuffer.position(0);
     }
 
-    public void setColour(int R, int G, int B) {
+    public void setColour(float R, float G, float B) {
         RGBcolour[0] = R;
         RGBcolour[1] = G;
         RGBcolour[2] = B;
     }
 
-    public float LERP(float p0, float p1){
-        return p0*(1-dt) + p1*dt;
-    }
+
 
 }
 
