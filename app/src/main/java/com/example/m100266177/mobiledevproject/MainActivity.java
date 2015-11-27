@@ -2,20 +2,30 @@ package com.example.m100266177.mobiledevproject;
 
 import android.app.Activity;
 import android.content.Context;
+import android.opengl.GLSurfaceView;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
 
 public class MainActivity extends Activity {
+
+    private GLSurfaceView glSurfaceView = null;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
 
-        AnimatedBackground animatedBackground = new AnimatedBackground(this);
-        animatedBackground.setColour(250,100,100);
-        animatedBackground.invalidate();
+        // our view will be a GLSurfaceView
+        glSurfaceView = new GLSurfaceView(this);
+
+        // specify the configuration (8 bits per pixel, 16 bit depth buffer)
+        glSurfaceView.setEGLConfigChooser(8, 8, 8, 8, 16, 0);
+
+        //Set our own Renderer
+        glSurfaceView.setRenderer(new AnimatedBackground());
+        //Set the GLSurface as View to this Activity
+        setContentView(glSurfaceView);
     }
 
     @Override
@@ -38,5 +48,10 @@ public class MainActivity extends Activity {
         }
 
         return super.onOptionsItemSelected(item);
+    }
+
+    //Test Button
+    public void buttonHandle(View view){
+
     }
 }
