@@ -2,11 +2,13 @@ package com.example.m100266177.mobiledevproject;
 
 import android.app.Activity;
 import android.content.Context;
+import android.content.Intent;
 import android.opengl.GLSurfaceView;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.Button;
 
 public class MainActivity extends Activity {
 
@@ -53,5 +55,13 @@ public class MainActivity extends Activity {
     //Test Button
     public void buttonHandle(View view){
 
+    }
+    public void browseButtonOnClick (View v) {
+        Button button = (Button) v;
+        startActivity( new Intent(getApplicationContext(), BrowseEvents.class));
+    }
+    public void createButtonOnClick (View v) {
+        Button button = (Button) v;
+        startActivity( new Intent(getApplicationContext(), CreateEvent.class));
     }
 }

@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
+    android:layout_height="match_parent" android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    tools:context="com.example.m100266177.mobiledevproject.BrowseEvents">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/eventName"
+        android:id="@+id/eventNameLabel"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentStart="true" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/eventDateLabel"
+        android:id="@+id/eventDateLabel"
+        android:layout_below="@+id/eventNameLabel"
+        android:layout_alignParentStart="true"
+        android:layout_marginTop="40dp" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/eventAddressLabel"
+        android:id="@+id/eventAddressLabel"
+        android:layout_marginTop="46dp"
+        android:layout_below="@+id/eventDateLabel"
+        android:layout_alignParentStart="true" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/eventDescriptionLabel"
+        android:id="@+id/eventDescriptionLabel"
+        android:layout_marginTop="46dp"
+        android:layout_below="@+id/eventAddressLabel"
+        android:layout_alignParentStart="true" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/eventNameOutput"
+        android:layout_below="@+id/eventNameLabel"
+        android:layout_alignParentStart="true" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/eventDateOutput"
+        android:layout_below="@+id/eventDateLabel"
+        android:layout_alignParentStart="true" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/eventAddressOutput"
+        android:layout_below="@+id/eventAddressLabel"
+        android:layout_alignParentStart="true" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/eventDescriptionOuput"
+        android:layout_below="@+id/eventDescriptionLabel"
+        android:layout_alignParentStart="true" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/previousButtonLabel"
+        android:id="@+id/previousButton"
+        android:layout_below="@+id/eventDescriptionOuput"
+        android:layout_alignParentStart="true"
+        android:layout_marginTop="85dp"
+        android:onClick="previousButtonOnClick" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/deleteButtonLabel"
+        android:id="@+id/deleteButton"
+        android:layout_alignBottom="@+id/previousButton"
+        android:layout_centerHorizontal="true"
+        android:onClick="deleteButtonOnClick" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/nextButtonLabel"
+        android:id="@+id/nextButton"
+        android:layout_alignBottom="@+id/deleteButton"
+        android:layout_alignParentEnd="true"
+        android:onClick="nextButtonOnClick" />
+
+</RelativeLayout>

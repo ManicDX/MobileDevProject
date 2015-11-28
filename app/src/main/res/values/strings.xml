@@ -3,4 +3,19 @@
 
     <string name="hello_world">Hello world!</string>
     <string name="action_settings">Settings</string>
+    <string name="eventName">Event Name</string>
+    <string name="eventDateLabel">Event Date</string>
+    <string name="eventAddressLabel">Event Address</string>
+    <string name="eventDescriptionLabel">Event Description</string>
+    <string name="previousButtonLabel">Previous</string>
+    <string name="deleteButtonLabel">Delete</string>
+    <string name="nextButtonLabel">Next</string>
+    <string name="eventNameHint">Ex. Dentist Appointment</string>
+    <string name="eventDateHint">Ex. November 15th 2015</string>
+    <string name="eventAddressHint">Ex. 123 Fake Street Oshawa ON</string>
+    <string name="eventDescriptionHint">Ex. Getting Tooth Pulled</string>
+    <string name="submitButtonLabel">Submit</string>
+    <string name="cancelButtonLabel">Cancel</string>
+    <string name="browseEventButtonLabel">Browse Events</string>
+    <string name="createButtonLabel">Create Event</string>
 </resources>

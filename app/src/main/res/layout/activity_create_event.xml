@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
+    android:layout_height="match_parent" android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    tools:context="com.example.m100266177.mobiledevproject.CreateEvent">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/eventName"
+        android:id="@+id/createEventTitleLabel"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentStart="true" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/eventDateLabel"
+        android:id="@+id/createEventDateLabel"
+        android:layout_below="@+id/createEventTitleLabel"
+        android:layout_alignParentStart="true"
+        android:layout_marginTop="47dp" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/eventAddressLabel"
+        android:id="@+id/createEventAddressLabel"
+        android:layout_below="@+id/createEventDateLabel"
+        android:layout_alignParentStart="true"
+        android:layout_marginTop="38dp" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/eventDescriptionLabel"
+        android:id="@+id/createEventDescriptionLabel"
+        android:layout_below="@+id/createEventAddressLabel"
+        android:layout_alignParentStart="true"
+        android:layout_marginTop="40dp" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/cancelButtonLabel"
+        android:id="@+id/cancelButton"
+        android:layout_below="@+id/createEventDescriptionLabel"
+        android:layout_alignParentStart="true"
+        android:layout_marginTop="118dp" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/submitButtonLabel"
+        android:id="@+id/submitButton"
+        android:layout_alignBottom="@+id/cancelButton"
+        android:layout_alignParentEnd="true" />
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/eventNameInput"
+        android:layout_below="@+id/createEventTitleLabel"
+        android:layout_alignParentStart="true"
+        android:hint="@string/eventNameHint"
+        android:layout_toStartOf="@+id/submitButton" />
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/eventDateInput"
+        android:layout_below="@+id/createEventDateLabel"
+        android:layout_alignEnd="@+id/eventNameInput"
+        android:layout_alignParentStart="true"
+        android:hint="@string/eventDateHint" />
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/eventAddressInput"
+        android:layout_below="@+id/createEventAddressLabel"
+        android:layout_alignParentStart="true"
+        android:hint="@string/eventAddressHint" />
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/eventDescriptionInput"
+        android:layout_below="@+id/createEventDescriptionLabel"
+        android:layout_alignParentStart="true"
+        android:layout_alignEnd="@+id/eventAddressInput"
+        android:hint="@string/eventDescriptionHint" />
+</RelativeLayout>
