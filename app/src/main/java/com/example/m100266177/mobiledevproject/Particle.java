@@ -38,7 +38,4 @@ public abstract class Particle {
 
 }
 
-class Triangle extends Particle {
-
-}
 

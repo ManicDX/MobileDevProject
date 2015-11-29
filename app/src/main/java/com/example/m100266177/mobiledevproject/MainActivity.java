@@ -18,16 +18,11 @@ public class MainActivity extends Activity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        // our view will be a GLSurfaceView
-        glSurfaceView = new GLSurfaceView(this);
 
-        // specify the configuration (8 bits per pixel, 16 bit depth buffer)
-        glSurfaceView.setEGLConfigChooser(8, 8, 8, 8, 16, 0);
-
-        //Set our own Renderer
-        glSurfaceView.setRenderer(new AnimatedBackground());
+        AnimatedBackground animated = new AnimatedBackground(this);
+        animated.setColour(250,250,250);
         //Set the GLSurface as View to this Activity
-        setContentView(glSurfaceView);
+        setContentView(R.layout.activity_main);
     }
 
     @Override
