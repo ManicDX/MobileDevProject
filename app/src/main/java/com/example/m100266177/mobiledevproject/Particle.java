@@ -8,18 +8,27 @@ class Vector2d{
     float y;
 };
 
-public abstract class Particle {
+public class Particle {
     int life;
-    int lifeSpan;   // -1 for infinite
-    Vector2d pos;   //position
-    Vector2d vel;   //velocity
-    int R,G,B;      //colour in 256 RGB
-    float size;
+    int lifeSpan;           // -1 for infinite
+    public int x,y;   //position
+    public int v_x, v_y;   //velocity
+    public int R,G,B;              //colour in 256 RGB
+    public int size;
 
+    Particle(int x, int y, int vx, int vy, int life, int lifeSpan, int R, int G, int B, int size){
+        this.x = x;
+        this.y = y;
+        this.life = life;
+        this.lifeSpan = lifeSpan;
+        v_x = vx; v_y = vy;
+        this.R = R; this.G = G; this.B = B;
+        this.size = size;
+    }
 
     public void update(){
-        pos.x += vel.x;
-        pos.y += vel.y;
+        x += v_x;
+        y += v_y;
 
         if(lifeSpan != -1)
             life -= 1;
@@ -29,7 +38,7 @@ public abstract class Particle {
 
     boolean isDead() {
 
-        if (life < 0) {
+        if (life == 0) {
             return true;
         }
         return false;

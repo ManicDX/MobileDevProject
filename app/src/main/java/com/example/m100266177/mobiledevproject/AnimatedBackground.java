@@ -26,6 +26,9 @@ public class AnimatedBackground extends View {
 
     public Sprite sunSprite;
     public Sprite rainSprite;
+    public Sprite snowSprite;
+
+    public ParticleManager pManager;
 
     public AnimatedBackground(Context context) {
         super(context);
@@ -42,16 +45,22 @@ public class AnimatedBackground extends View {
         rand    = new Random();
         Bitmap sunSpriteheet = BitmapFactory.decodeResource(getResources(), R.drawable.spritest);
 
-        //TODO replace sunSprite with sunny, rainy, snowy sunSprite from sheet
+        pManager = new ParticleManager();
+
         sunSprite = new Sprite(sunSpriteheet, 100, 100);
-        //TODO hardcoded frame stuff
+        //TODO remove hardcoded frame stuff
         sunSprite.addFrame(0,0);  sunSprite.addFrame(100,0);  sunSprite.addFrame(200,0);
-        sunSprite.setPosition(200, 200);
+        sunSprite.setPosition(300, 400);
 
         rainSprite = new Sprite(sunSpriteheet, 100, 100);
 
         rainSprite.addFrame(0,100);  rainSprite.addFrame(100,100);  rainSprite.addFrame(200, 100);
         rainSprite.setPosition(400, 400);
+
+        snowSprite = new Sprite(sunSpriteheet, 100, 100);
+
+        snowSprite.addFrame(0,200);  snowSprite.addFrame(100,200);  snowSprite.addFrame(200, 200);
+        snowSprite.setPosition(500, 400);
     }
 
     //Seperate thread for invalidating/redraw
@@ -82,12 +91,15 @@ public class AnimatedBackground extends View {
         //TODO, draw background Rect
 
         //TODO update particle positions
+        pManager.update();
 
         //TODO, draw particles loop
+        pManager.draw(canvas);
 
         //draw sunSprite
         sunSprite.drawAnimationFrame(canvas);
         rainSprite.drawAnimationFrame(canvas);
+        snowSprite.drawAnimationFrame(canvas);
 
         //increment delta time, nextFrame
         dt += 0.05f;
@@ -95,6 +107,7 @@ public class AnimatedBackground extends View {
             dt = 0.0f;
             sunSprite.nextFrame();
             rainSprite.nextFrame();
+            snowSprite.nextFrame();
         }
 
 
