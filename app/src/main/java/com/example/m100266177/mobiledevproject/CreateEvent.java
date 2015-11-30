@@ -46,6 +46,7 @@ public class CreateEvent extends Activity {
         // Once the cancel button is clicked the screen goes back to the MainActivity
         Button button = (Button) v;
         setResult(RESULT_CANCELED);
+        finish();
     }
     // enables the events to be added into the database
     public void createEvent(View view){

@@ -4,8 +4,6 @@ import android.content.Context;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.Canvas;
-import android.graphics.Paint;
-import android.graphics.RectF;
 import android.os.Handler;
 import android.util.AttributeSet;
 import android.view.View;
@@ -18,7 +16,7 @@ import java.util.Random;
  */
 public class AnimatedBackground extends View {
 
-    private int[] RGBcolour = {250, 100, 100};
+    private int[] RGBcolour = {200, 200, 200};
 
     private int SPEED = 30;
 
@@ -51,7 +49,7 @@ public class AnimatedBackground extends View {
         sunSprite.setPosition(200, 200);
 
         rainSprite = new Sprite(sunSpriteheet, 100, 100);
-        //TODO hardcoded frame stuff
+
         rainSprite.addFrame(0,100);  rainSprite.addFrame(100,100);  rainSprite.addFrame(200, 100);
         rainSprite.setPosition(400, 400);
     }
