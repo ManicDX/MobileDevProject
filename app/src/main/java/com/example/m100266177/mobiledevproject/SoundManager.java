@@ -28,7 +28,7 @@ public class SoundManager {
 
         //Check version of android
         SoundPool.Builder sp21;
-        if((android.os.Build.VERSION.SDK_INT) <= 21){
+        if((android.os.Build.VERSION.SDK_INT) >= 21){
             sp21 = new SoundPool.Builder();
             sp21.setMaxStreams(5);
             sp21.setAudioAttributes(new AudioAttributes.Builder()

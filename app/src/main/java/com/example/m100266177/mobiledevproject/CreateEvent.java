@@ -24,6 +24,7 @@ public class CreateEvent extends Activity {
 
     // Sends it back to the MainActivity after adding the current entry to the database.
     public void submitButtonOnClick (View v) {
+        SoundManager.getInstance(this).play(0);
         EventDatabaseHelper dbHelper = new EventDatabaseHelper(this);
         // Once the submit entry button is pressed the results are submitted to the list array.
         Button button = (Button) v;
@@ -44,6 +45,7 @@ public class CreateEvent extends Activity {
     // sends it back to the MainActivity without adding an event because the use canceled their transaction
     public void cancelButtonOnClick (View v) {
         // Once the cancel button is clicked the screen goes back to the MainActivity
+        SoundManager.getInstance(this).play(1);
         Button button = (Button) v;
         setResult(RESULT_CANCELED);
         finish();

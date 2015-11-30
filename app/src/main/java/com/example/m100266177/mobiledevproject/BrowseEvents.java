@@ -56,17 +56,20 @@ public class BrowseEvents extends Activity {
 
 
     public void nextButtonOnClick (View v) {
+        SoundManager.getInstance(this).play(0);
         // Once the next button is clicked the next product is displayed
         Button button = (Button) v;
         nextEvent();
     }
 
     public void previousButtonOnClick (View v) {
+        SoundManager.getInstance(this).play(0);
         // Once the previous button is clicked the previous product is displayed
         Button button = (Button) v;
         prevEvent();
     }
     public void deleteButtonOnClick (View v) {
+        SoundManager.getInstance(this).play(1);
         // once this button is pressed the current entry will be deleted
         Button button = (Button) v;
         EventDatabaseHelper dbHelper = new EventDatabaseHelper(this);

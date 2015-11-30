@@ -47,8 +47,9 @@ public class AnimatedBackground extends View {
 
         pManager = new ParticleManager();
 
+
         sunSprite = new Sprite(sunSpriteheet, 100, 100);
-        //TODO remove hardcoded frame stuff
+        //TODO remove hardcoded frame stuff, replace with array of sprites
         sunSprite.addFrame(0,0);  sunSprite.addFrame(100,0);  sunSprite.addFrame(200,0);
         sunSprite.setPosition(300, 400);
 
@@ -90,13 +91,12 @@ public class AnimatedBackground extends View {
 
         //TODO, draw background Rect
 
-        //TODO update particle positions
+        //draw Particles
         pManager.update();
-
-        //TODO, draw particles loop
         pManager.draw(canvas);
 
-        //draw sunSprite
+        //draw sprites
+        //TODO replace with loop?
         sunSprite.drawAnimationFrame(canvas);
         rainSprite.drawAnimationFrame(canvas);
         snowSprite.drawAnimationFrame(canvas);

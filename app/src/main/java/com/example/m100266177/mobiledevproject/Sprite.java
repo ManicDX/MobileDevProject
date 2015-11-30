@@ -61,14 +61,13 @@ public class Sprite {
     public void drawAnimationFrame(Canvas canvas) {
         // create a brush
         Paint blackFill = new Paint();
-        blackFill.setARGB(0, 0, 0, 0);
+        blackFill.setARGB(255, 50, 50, 50);
         blackFill.setStyle(Paint.Style.FILL);
 
         // determine the source and destination boundaries
         int left = row.get(currentFrame);
         int top = col.get(currentFrame);
         Rect source = new Rect(left, top, left + SPRITE_WIDTH, top + SPRITE_HEIGHT);
-        //TODO replace hardcoded 200 with position vector of sprite, x,y
         RectF dest = new RectF(x, y, x + SPRITE_WIDTH, y + SPRITE_HEIGHT);
 
         // draw the current frame

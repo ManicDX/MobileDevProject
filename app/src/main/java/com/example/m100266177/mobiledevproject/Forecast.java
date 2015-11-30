@@ -39,7 +39,7 @@ public class Forecast extends Activity implements ForecastListener {
 
     // Displays the 7 day forecast in the window * might think about changing it to a listview with an arraylist instead *
     public void showOrigin(String forecast) {
-
+        SoundManager.getInstance(this).play(0);
         EditText cityForecast = (EditText)findViewById(R.id.cityForecast);
         cityForecast.setText(forecast);
     }
