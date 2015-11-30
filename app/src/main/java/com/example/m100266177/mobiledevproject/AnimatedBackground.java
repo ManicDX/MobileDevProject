@@ -26,7 +26,8 @@ public class AnimatedBackground extends View {
     private Random rand;
     private float dt = 0.0f;
 
-    public Sprite sprites;
+    public Sprite sunSprite;
+    public Sprite rainSprite;
 
     public AnimatedBackground(Context context) {
         super(context);
@@ -41,12 +42,18 @@ public class AnimatedBackground extends View {
     private void init(){
         handler = new Handler();
         rand    = new Random();
-        Bitmap spriteSheet = BitmapFactory.decodeResource(getResources(), R.drawable.spritest);
+        Bitmap sunSpriteheet = BitmapFactory.decodeResource(getResources(), R.drawable.spritest);
 
-        //TODO replace sprites with sunny, rainy, snowy sprites from sheet
-        sprites = new Sprite(spriteSheet, 100, 100);
+        //TODO replace sunSprite with sunny, rainy, snowy sunSprite from sheet
+        sunSprite = new Sprite(sunSpriteheet, 100, 100);
         //TODO hardcoded frame stuff
-        sprites.addFrame(0,0);  sprites.addFrame(100,0);  sprites.addFrame(200,0);
+        sunSprite.addFrame(0,0);  sunSprite.addFrame(100,0);  sunSprite.addFrame(200,0);
+        sunSprite.setPosition(200, 200);
+
+        rainSprite = new Sprite(sunSpriteheet, 100, 100);
+        //TODO hardcoded frame stuff
+        rainSprite.addFrame(0,100);  rainSprite.addFrame(100,100);  rainSprite.addFrame(200, 100);
+        rainSprite.setPosition(400, 400);
     }
 
     //Seperate thread for invalidating/redraw
@@ -80,14 +87,16 @@ public class AnimatedBackground extends View {
 
         //TODO, draw particles loop
 
-        //draw sprites
-        sprites.drawAnimationFrame(canvas);
+        //draw sunSprite
+        sunSprite.drawAnimationFrame(canvas);
+        rainSprite.drawAnimationFrame(canvas);
 
         //increment delta time, nextFrame
-        dt += 0.01f;
+        dt += 0.05f;
         if(dt > 1.0f) {
             dt = 0.0f;
-            sprites.nextFrame();
+            sunSprite.nextFrame();
+            rainSprite.nextFrame();
         }
 
 

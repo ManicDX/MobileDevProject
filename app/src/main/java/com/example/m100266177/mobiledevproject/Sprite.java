@@ -18,9 +18,14 @@ public class Sprite {
     private int numFrames = -1;
     public int currentFrame = 0;
 
+    //position
+    private int x, y;
+
+
     public ArrayList<Integer> row = new ArrayList<>();
     public ArrayList<Integer> col = new ArrayList<>();
 
+    //Sprite size on sprite sheet
     public int SPRITE_WIDTH;
     public int SPRITE_HEIGHT;
 
@@ -28,9 +33,17 @@ public class Sprite {
         SPRITE_WIDTH = frameWidth;
         SPRITE_HEIGHT = frameHeight;
 
+        x = y = 0;
+
         // load the image, offset to android standards
         spriteSheet = sheet;
-        spriteSheet = Bitmap.createScaledBitmap(spriteSheet, SPRITE_WIDTH * 4, SPRITE_HEIGHT * 4, false);
+        //TODO, remove hardcoded 3*
+        spriteSheet = Bitmap.createScaledBitmap(spriteSheet, SPRITE_WIDTH * 3, SPRITE_HEIGHT * 3, false);
+    }
+
+    public void setPosition(int x, int y){
+        this.x = x;
+        this.y = y;
     }
 
     //Add an animation frame to the sprite
@@ -56,8 +69,9 @@ public class Sprite {
         // determine the source and destination boundaries
         int left = row.get(currentFrame);
         int top = col.get(currentFrame);
-        Rect source = new Rect(left, top, SPRITE_WIDTH, SPRITE_HEIGHT);
-        RectF dest = new RectF(200, 200, 200 + SPRITE_WIDTH, 200 + SPRITE_HEIGHT);
+        Rect source = new Rect(left, top, left + SPRITE_WIDTH, top + SPRITE_HEIGHT);
+        //TODO replace hardcoded 200 with position vector of sprite, x,y
+        RectF dest = new RectF(x, y, x + SPRITE_WIDTH, y + SPRITE_HEIGHT);
 
         // draw the current frame
         canvas.drawBitmap(spriteSheet, source, dest, null);
