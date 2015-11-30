@@ -32,9 +32,6 @@ public class MainActivity extends Activity {
         //Set the GLSurface as View to this Activity
         setContentView(R.layout.activity_main);
 
-
-
-
     }
 
     @Override
@@ -64,11 +61,15 @@ public class MainActivity extends Activity {
         //int strID = soundPool.play(menuSound,1f,1f,0,0,1f); //testing sound
         SoundManager.getInstance(this).play(1);
     }
+    public void forecastButtonOnClick (View v) {
+        SoundManager.getInstance(this).play(0);
+        Button button = (Button) v;
+        startActivity(new Intent(getApplicationContext(), Forecast.class));
+    }
     public void browseButtonOnClick (View v) {
         SoundManager.getInstance(this).play(0);
         Button button = (Button) v;
         startActivity(new Intent(getApplicationContext(), BrowseEvents.class));
-
     }
     public void createButtonOnClick (View v) {
         SoundManager.getInstance(this).play(0);

@@ -38,10 +38,11 @@ public class SoundManager {
 
     private void loadSounds(Context context){
         //TODO fix this up
-        int strID = soundPool.load(context, R.raw.misc_menu, 1);
-        int strID2 = soundPool.load(context, R.raw.negative, 1);
-        soundIds.add(strID);
-        soundIds.add(strID2);
+          int strID = soundPool.load(context, R.raw.misc_menu, 1);
+          int strID2 = soundPool.load(context, R.raw.negative, 1);
+          soundIds.add(strID);
+          soundIds.add(strID2);
+
     }
 
     public void play(int index){

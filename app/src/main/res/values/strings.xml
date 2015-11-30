@@ -18,4 +18,9 @@
     <string name="cancelButtonLabel">Cancel</string>
     <string name="browseEventButtonLabel">Browse Events</string>
     <string name="createButtonLabel">Create Event</string>
+    <string name="forecastButtonLabel">Seven Day Forecast</string>
+    <string name="cityNameLbl">City Name</string>
+    <string name="cityNameHint">Ex: Toronto</string>
+    <string name="sevenDayForecastLabel">Forecast For The Next 7 Days</string>
+    <string name="queryButtonLabel">Submit Request</string>
 </resources>
