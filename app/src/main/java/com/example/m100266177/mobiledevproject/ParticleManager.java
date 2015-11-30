@@ -40,6 +40,7 @@ public class ParticleManager {
         for(int index = 0; index < particles.size(); index++){
             Particle temp = particles.get(index);
 
+            //LERP alpha value close to particle's death so if fades out
             int alpha = 255;
             float currentLife = (float)particles.get(index).life;
             if(currentLife < 10){
@@ -57,6 +58,7 @@ public class ParticleManager {
     }
 
     public void createParticle(){
+        //TODO change hardcoded values
         int vx = rand.nextInt(20) - 10;
         int vy = rand.nextInt(20) - 10;
         int life = rand.nextInt(30) + 60;
