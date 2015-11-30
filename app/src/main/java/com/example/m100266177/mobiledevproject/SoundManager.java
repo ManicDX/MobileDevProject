@@ -2,6 +2,7 @@ package com.example.m100266177.mobiledevproject;
 
 import android.annotation.SuppressLint;
 import android.content.Context;
+import android.media.AudioAttributes;
 import android.media.AudioManager;
 import android.media.SoundPool;
 import android.util.Log;
@@ -24,7 +25,23 @@ public class SoundManager {
 
     @SuppressLint("UseSparseArrays")
     private SoundManager(Context context) {
-        soundPool = new SoundPool(20, AudioManager.STREAM_MUSIC, 0);
+
+        //Check version of android
+        SoundPool.Builder sp21;
+        if((android.os.Build.VERSION.SDK_INT) <= 21){
+            sp21 = new SoundPool.Builder();
+            sp21.setMaxStreams(5);
+            sp21.setAudioAttributes(new AudioAttributes.Builder()
+                    .setUsage(AudioAttributes.USAGE_MEDIA)
+                    .setContentType(AudioAttributes.CONTENT_TYPE_SONIFICATION)
+                    .build());
+            soundPool = sp21.build();
+        }
+        else{
+            soundPool = new SoundPool(5, AudioManager.STREAM_MUSIC, 0);
+        }
+
+
         loadSounds(context);
     }
 
