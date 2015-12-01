@@ -20,7 +20,7 @@ public class ParticleManager {
         rand = new Random();
         x = 500;
         y = 500;
-        for(int index = 0; index < 10; index++){
+        for(int index = 0; index < 30; index++){
             createParticle();
         }
     }
@@ -59,11 +59,12 @@ public class ParticleManager {
 
     public void createParticle(){
         //TODO change hardcoded values
-        int vx = rand.nextInt(20) - 10;
-        int vy = rand.nextInt(20) - 10;
-        int life = rand.nextInt(30) + 60;
-        int colour = rand.nextInt(20) + 200;
-        Particle p = new Particle(x, y, vx, vy, life, 0, colour, colour, colour, 15);
+        int xOffset = rand.nextInt(500) - 250;
+        int vx = rand.nextInt(10) - 5;
+        int vy = rand.nextInt(8) + 2;
+        int life = rand.nextInt(60) + 60;
+        int colour = 255;//rand.nextInt(20) + 180;
+        Particle p = new Particle(x + xOffset, 0, vx, vy, life, 0, colour, colour, colour, 15);
         particles.add(p);
     }
 }

@@ -19,6 +19,7 @@ public class Sprite {
     //position
     private int x, y;
 
+    private int scale;
 
     public ArrayList<Integer> row = new ArrayList<>();
     public ArrayList<Integer> col = new ArrayList<>();
@@ -27,22 +28,26 @@ public class Sprite {
     public int SPRITE_WIDTH;
     public int SPRITE_HEIGHT;
 
-    Sprite(Bitmap sheet, int frameWidth, int frameHeight){
+
+
+    Sprite(Bitmap sheet, int frameWidth, int frameHeight, int scale){
         SPRITE_WIDTH = frameWidth;
         SPRITE_HEIGHT = frameHeight;
+        this.scale = scale;
 
+        //init position data
         x = y = 0;
 
         // load the image, offset to android standards
         spriteSheet = sheet;
-        //TODO, remove hardcoded 3*
-        spriteSheet = Bitmap.createScaledBitmap(spriteSheet, SPRITE_WIDTH * 3, SPRITE_HEIGHT * 3, false);
+        spriteSheet = Bitmap.createScaledBitmap(spriteSheet, SPRITE_WIDTH * scale, SPRITE_HEIGHT * scale, false);
     }
 
     public void setPosition(int x, int y){
         this.x = x;
         this.y = y;
     }
+
 
     //Add an animation frame to the sprite
     public void addFrame(int _row, int _col){

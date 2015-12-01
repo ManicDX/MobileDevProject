@@ -4,7 +4,7 @@ package com.example.m100266177.mobiledevproject;
  * Created by 100266177 on 26/11/2015.
  */
 
-//This class is for simple animation math, translations and rotation functions
+//This class is for simple animation math, translations and rotation functions, animations
 public class SimpleMath {
 
     //linear interpolation

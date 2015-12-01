@@ -11,9 +11,9 @@ class Vector2d{
 public class Particle {
     int life;
     int lifeSpan;           // -1 for infinite
-    public int x,y;   //position
+    public int x,y;         //position
     public int v_x, v_y;   //velocity
-    public int R,G,B;              //colour in 256 RGB
+    public int R,G,B;      //colour in 256 RGB
     public int size;
 
     Particle(int x, int y, int vx, int vy, int life, int lifeSpan, int R, int G, int B, int size){

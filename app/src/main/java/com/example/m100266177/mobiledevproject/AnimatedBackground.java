@@ -24,6 +24,9 @@ public class AnimatedBackground extends View {
     private Random rand;
     private float dt = 0.0f;
 
+    public Sprite background;
+    public Sprite title;
+
     public Sprite sunSprite;
     public Sprite rainSprite;
     public Sprite snowSprite;
@@ -44,24 +47,37 @@ public class AnimatedBackground extends View {
         handler = new Handler();
         rand    = new Random();
         Bitmap sunSpriteheet = BitmapFactory.decodeResource(getResources(), R.drawable.spritest);
+        Bitmap BGsheet = BitmapFactory.decodeResource(getResources(), R.drawable.background);
+        Bitmap titleSheet = BitmapFactory.decodeResource(getResources(), R.drawable.title);
 
         pManager = new ParticleManager();
 
 
-        sunSprite = new Sprite(sunSpriteheet, 100, 100);
+        background = new Sprite(BGsheet, 500* 2, 325 * 5, 1);
+        background.addFrame(0, 0);
+        background.setPosition(0, 0);
+
+        title = new Sprite(titleSheet, 500, 200, 1);
+        title.addFrame(0, 0);
+        title.setPosition(250, 0);
+
+        sunSprite = new Sprite(sunSpriteheet, 100, 100, 3);
         //TODO remove hardcoded frame stuff, replace with array of sprites
-        sunSprite.addFrame(0,0);  sunSprite.addFrame(100,0);  sunSprite.addFrame(200,0);
+        sunSprite.addFrame(0, 0);  sunSprite.addFrame(100, 0);  sunSprite.addFrame(200, 0);
         sunSprite.setPosition(300, 400);
+        //sunSprite.setScale(3);
 
-        rainSprite = new Sprite(sunSpriteheet, 100, 100);
+        rainSprite = new Sprite(sunSpriteheet, 100, 100, 3);
 
-        rainSprite.addFrame(0,100);  rainSprite.addFrame(100,100);  rainSprite.addFrame(200, 100);
+        rainSprite.addFrame(0,100);  rainSprite.addFrame(100, 100);  rainSprite.addFrame(200, 100);
         rainSprite.setPosition(400, 400);
+        //rainSprite.setScale(3);
 
-        snowSprite = new Sprite(sunSpriteheet, 100, 100);
+        snowSprite = new Sprite(sunSpriteheet, 100, 100, 3);
 
         snowSprite.addFrame(0,200);  snowSprite.addFrame(100,200);  snowSprite.addFrame(200, 200);
         snowSprite.setPosition(500, 400);
+        //rainSprite.setScale(3);
     }
 
     //Seperate thread for invalidating/redraw
@@ -82,14 +98,15 @@ public class AnimatedBackground extends View {
     }
 
 
-
     @Override
     protected void onDraw(Canvas canvas) {
         canvas.drawRGB(RGBcolour[0], RGBcolour[1], RGBcolour[2]);
 
 
 
-        //TODO, draw background Rect
+        //background
+        background.drawAnimationFrame(canvas);
+        title.drawAnimationFrame(canvas);
 
         //draw Particles
         pManager.update();
