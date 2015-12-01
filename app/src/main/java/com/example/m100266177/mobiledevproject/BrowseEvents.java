@@ -54,20 +54,28 @@ public class BrowseEvents extends Activity {
         this.events = dbHelper.getAllEvents();
     }
 
-
+    // once the directions button has been clicked it sends the user to the maps portion of the app.
+    public void directionsButtonOnClick (View v) {
+        SoundManager.getInstance(this).play(0);
+        // Once the next button is clicked the next product is displayed
+        Button button = (Button) v;
+        startActivity(new Intent(getApplicationContext(), MapsActivity.class));
+    }
+    // displays the next event in the directory when clicked
     public void nextButtonOnClick (View v) {
         SoundManager.getInstance(this).play(0);
         // Once the next button is clicked the next product is displayed
         Button button = (Button) v;
         nextEvent();
     }
-
+    // displays the previous event in the directory when clicked
     public void previousButtonOnClick (View v) {
         SoundManager.getInstance(this).play(0);
         // Once the previous button is clicked the previous product is displayed
         Button button = (Button) v;
         prevEvent();
     }
+    // deletes the currently viewed event once its clicked
     public void deleteButtonOnClick (View v) {
         SoundManager.getInstance(this).play(1);
         // once this button is pressed the current entry will be deleted
@@ -88,7 +96,7 @@ public class BrowseEvents extends Activity {
                     Toast.LENGTH_SHORT).show();
         }
     }
-
+    // changes the cursor position in the array to the position of the next event
     private void nextEvent() {
         this.EventIndex++;
 
@@ -98,7 +106,7 @@ public class BrowseEvents extends Activity {
 
         showEvent(this.events.get(this.EventIndex));
     }
-
+    // changes the cursor to the location in the array of the previous event
     private void prevEvent(){
         this.EventIndex--;
 

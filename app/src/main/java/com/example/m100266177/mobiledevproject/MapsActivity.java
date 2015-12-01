@@ -6,6 +6,7 @@ package com.example.m100266177.mobiledevproject;
  * it as an emulator as I can install google play services on that. A sample map marker for UOIT
  * has been put onto the map and the camera zooms in towards it.
  */
+
 import android.support.v4.app.FragmentActivity;
 import android.os.Bundle;
 
