@@ -1,5 +1,9 @@
 package com.example.m100266177.mobiledevproject;
-
+/**
+ * Created By 100486790 And 100266177
+ * Main activity serves as a main menu of sorts. Most of the users navigation through our
+ * daily event planner happens here.
+ */
 import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
@@ -55,22 +59,19 @@ public class MainActivity extends Activity {
 
         return super.onOptionsItemSelected(item);
     }
-
-    //Test Button
-    public void buttonHandle(View view){
-        //int strID = soundPool.play(menuSound,1f,1f,0,0,1f); //testing sound
-        SoundManager.getInstance(this).play(1);
-    }
+    // activates when the forecast button is clicked. It opens the forecast class
     public void forecastButtonOnClick (View v) {
         SoundManager.getInstance(this).play(0);
         Button button = (Button) v;
         startActivity(new Intent(getApplicationContext(), Forecast.class));
     }
+    // activates when the browse button is clicked, opens up the browse event class to see events.
     public void browseButtonOnClick (View v) {
         SoundManager.getInstance(this).play(0);
         Button button = (Button) v;
         startActivity(new Intent(getApplicationContext(), BrowseEvents.class));
     }
+    // activates when the create button is pressed, it opens up the create event class.
     public void createButtonOnClick (View v) {
         SoundManager.getInstance(this).play(0);
         Button button = (Button) v;
