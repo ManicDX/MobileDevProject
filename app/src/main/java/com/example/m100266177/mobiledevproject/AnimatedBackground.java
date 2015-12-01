@@ -61,6 +61,8 @@ public class AnimatedBackground extends View {
         title.addFrame(0, 0);
         title.setPosition(250, 0);
 
+
+        //TODO move these to weather forecast
         sunSprite = new Sprite(sunSpriteheet, 100, 100, 3);
         //TODO remove hardcoded frame stuff, replace with array of sprites
         sunSprite.addFrame(0, 0);  sunSprite.addFrame(100, 0);  sunSprite.addFrame(200, 0);
